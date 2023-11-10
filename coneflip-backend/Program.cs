@@ -40,16 +40,18 @@ app.MapGet("/gettopthree", (IDbConnection db) =>
 
 app.MapPost("/addscore", (Coneflip coneflip, IDbConnection db) =>
 {
-    if (coneflip.Score == 0 || coneflip.Name == null || coneflip.video_link == null)
+
+    if (coneflip.Score == 0 || coneflip.Name == null || coneflip.Video_link == null)
     {
         return Results.BadRequest();
     }
 
-    // db.Execute("UPDATE [coneflip] SET [Content] = @Content WHERE [Id] = @Id", new
-    // {
-    //     Content = newOrUpdatedItem.Content,
-    //     Id  = newOrUpdatedItem.Id
-    // });
+    db.Execute("INSERT INTO [coneflip] VALUES(@name, @score, @video_link)", new
+    {
+        name = coneflip.Name,
+        score  = coneflip.Score,
+        video_link = coneflip.Video_link
+    });
 
     return Results.Ok();
 });
@@ -59,7 +61,6 @@ app.Run();
 public class Coneflip
 {
     public required string Name { get; set; }
-
     public required int Score { get; set; }
-    public required string video_link { get; set; }
+    public required string Video_link { get; set; }
 }
