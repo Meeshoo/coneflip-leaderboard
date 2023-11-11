@@ -35,7 +35,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/gettopthree", (IDbConnection db) =>
 {
-   return db.Query<Coneflip>("SELECT [name],[score],[video_link] FROM [coneflip] ORDER BY score DESC LIMIT 3");
+   return db.Query<Coneflip>("SELECT [name],[score],[video_link] FROM [coneflip] ORDER BY score DESC LIMIT 10");
 });
 
 app.MapPost("/addscore", (Coneflip coneflip, IDbConnection db) =>
