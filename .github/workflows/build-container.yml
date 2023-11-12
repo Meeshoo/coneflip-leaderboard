@@ -23,12 +23,6 @@ jobs:
 
       # Pull repo contents
       - uses: actions/checkout@v1
-
-      - name: debug
-        run: ls -lah
-
-      - name: debug
-        run: pwd
       
       - name: Packer build
         run: cd .build && packer build coneflip-leaderboard.pkr.hcl
