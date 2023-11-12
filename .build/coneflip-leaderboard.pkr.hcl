@@ -17,7 +17,7 @@ build {
 
   post-processors {
     post-processor "docker-tag" {
-      repository = "550661752655.dkr.ecr.eu-west-1.amazonaws.com/mitlan/coneflip-leaderboard"
+      repository = "550661752655.dkr.ecr.eu-west-1.amazonaws.com/mitlan"
       tags       = ["latest"]
     }
 
