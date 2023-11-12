@@ -34,7 +34,7 @@ build {
   }
 
   provisioner "shell" {
-    inline = ["dotnet build /tmp/coneflip-backend/coneflip-backend.sln /mitlan/dotnet/coneflip-leaderboard"]
+    inline = ["dotnet build /tmp/coneflip-backend/coneflip-backend.csproj -o /mitlan/dotnet/coneflip-leaderboard"]
   }
 
   post-processors {
