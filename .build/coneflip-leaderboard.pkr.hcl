@@ -12,7 +12,25 @@ build {
   sources = ["source.docker.fedora"]
 
   provisioner "shell" {
-    inline = ["pwd > /out.txt; ls >> out.txt"]
+    inline = ["mkdir -p /mitlan/nginx/coneflip-leaderboard","mkdir -p /mitlan/dotnet/coneflip-leaderboard"]
+  }
+
+  provisioner "file" {
+    source = "coneflip-frontend/"
+    destination = "/mitlan/nginx/coneflip-leaderboard"
+  }
+
+  provisioner "file" {
+    source = "coneflip-backend"
+    destination = "/tmp"
+  }
+
+  provisioner "shell" {
+    inline = ["sudo dnf install dotnet-sdk-7.0 aspnetcore-runtime-7.0 dotnet-runtime-7.0"]
+  }
+
+  provisioner "shell" {
+    inline = ["dotnet build /tmp/coneflip-backend/coneflip-backend.csproj /mitlan/dotnet/coneflip-leaderboard"]
   }
 
   post-processors {
