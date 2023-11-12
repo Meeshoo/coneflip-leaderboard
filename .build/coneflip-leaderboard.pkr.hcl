@@ -26,7 +26,7 @@ build {
   }
 
   provisioner "shell" {
-    inline = ["sudo dnf install dotnet-sdk-7.0 aspnetcore-runtime-7.0 dotnet-runtime-7.0"]
+    inline = ["sudo dnf install -y dotnet-sdk-7.0 aspnetcore-runtime-7.0 dotnet-runtime-7.0"]
   }
 
   provisioner "shell" {
