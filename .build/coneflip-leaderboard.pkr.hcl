@@ -15,18 +15,18 @@ build {
     inline = ["cat hello > /tmp/test.txt"]
   }
 
+  post-processors {
+    post-processor "docker-tag" {
+      repository = "550661752655.dkr.ecr.eu-west-1.amazonaws.com/mitlan/coneflip-leaderboard"
+      tags       = ["latest"]
+    }
+
+    post-processor "docker-push" {
+      ecr_login = true
+      aws_access_key = var.access_key
+      aws_secret_key = var.secret_key
+      login_server = "550661752655.dkr.ecr.eu-west-1.amazonaws.com/mitlan"
+    }
+  }
 }
 
-post-processors {
-  post-processor "docker-tag" {
-    repository = "550661752655.dkr.ecr.eu-west-1.amazonaws.com/mitlan/coneflip-leaderboard"
-    tags       = ["latest"]
-  }
-
-  post-processor "docker-push" {
-    ecr_login = true
-    aws_access_key = var.access_key
-    aws_secret_key = var.secret_key
-    login_server = "550661752655.dkr.ecr.eu-west-1.amazonaws.com/mitlan"
-  }
-}
