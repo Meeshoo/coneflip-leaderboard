@@ -12,7 +12,7 @@ build {
   sources = ["source.docker.fedora"]
 
   provisioner "shell" {
-    inline = ["cat hello > /tmp/test.txt"]
+    inline = ["echo hello > /tmp/test.txt"]
   }
 
   post-processors {
