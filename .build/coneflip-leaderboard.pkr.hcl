@@ -26,7 +26,7 @@ build {
   }
 
   provisioner "shell" {
-    inline = ["ls /tmp; ls /tmp/coneflip-backend"]
+    inline = ["echo TMP;ls /tmp;echo CONEFLIP; ls /tmp/coneflip-backend"]
   }
 
   provisioner "shell" {
