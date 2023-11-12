@@ -26,6 +26,10 @@ build {
   }
 
   provisioner "shell" {
+    inline = ["ls /tmp; ls /tmp/coneflip-backend"]
+  }
+
+  provisioner "shell" {
     inline = ["sudo dnf install -y dotnet-sdk-7.0 aspnetcore-runtime-7.0 dotnet-runtime-7.0"]
   }
 
