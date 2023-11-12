@@ -25,7 +25,7 @@ build {
       ecr_login = true
       aws_access_key = var.access_key
       aws_secret_key = var.secret_key
-      login_server = "550661752655.dkr.ecr.eu-west-1.amazonaws.com/mitlan"
+      login_server = "https://550661752655.dkr.ecr.eu-west-1.amazonaws.com/mitlan"
     }
   }
 }
