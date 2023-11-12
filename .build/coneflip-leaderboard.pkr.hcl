@@ -1,6 +1,6 @@
 variables {
-  access_key={{user `AWS_ACCESS_KEY_ID`}}
-  secret_key={{user `AWS_SECRET_ACCESS_KEY`}}
+  access_key="${env("AWS_ACCESS_KEY_ID")}"
+  secret_key="${env("AWS_SECRET_ACCESS_KEY")}"
 }
 
 source "docker" "fedora" {
