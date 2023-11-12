@@ -16,12 +16,12 @@ build {
   }
 
   provisioner "file" {
-    source = "coneflip-frontend/"
+    source = "../coneflip-frontend/"
     destination = "/mitlan/nginx/coneflip-leaderboard"
   }
 
   provisioner "file" {
-    source = "coneflip-backend"
+    source = "../coneflip-backend"
     destination = "/tmp"
   }
 
