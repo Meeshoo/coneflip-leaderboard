@@ -3,13 +3,13 @@ variables {
   secret_key="${env("AWS_SECRET_ACCESS_KEY")}"
 }
 
-source "docker" "fedora" {
-  image = "fedora"
+source "docker" "dotnet" {
+  image = "mcr.microsoft.com/dotnet/sdk"
   commit = true
 }
 
 build {
-  sources = ["source.docker.fedora"]
+  sources = ["source.docker.dotnet"]
 
   provisioner "shell" {
     inline = ["mkdir -p /mitlan/nginx/coneflip-leaderboard","mkdir -p /mitlan/dotnet/coneflip-leaderboard"]
@@ -23,14 +23,6 @@ build {
   provisioner "file" {
     source = "../coneflip-backend"
     destination = "/tmp"
-  }
-
-  provisioner "shell" {
-    inline = ["echo TMP;ls /tmp;echo CONEFLIP; ls /tmp/coneflip-backend"]
-  }
-
-  provisioner "shell" {
-    inline = ["sudo dnf install -y dotnet-sdk-7.0 aspnetcore-runtime-7.0 dotnet-runtime-7.0"]
   }
 
   provisioner "shell" {
