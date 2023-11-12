@@ -1,5 +1,15 @@
 const request = new XMLHttpRequest();
 
+function toggleVisibility() {
+    var answer = document.getElementById("answer");
+    if (answer.style.display == "block"){
+      answer.style.display = "none";
+    }
+    else {
+      answer.style.display = "block";
+    }
+  }
+
 window.onload = function() {
 
     const name1 = document.getElementById("name-1");
