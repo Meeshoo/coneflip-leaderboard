@@ -38,7 +38,7 @@ window.onload = function() {
 
     const name7 = document.getElementById("name-7");
     const score7 = document.getElementById("score-7");
-    const videolink7 = document.getElementById("videolink7");
+    const videolink7 = document.getElementById("videolink-7");
 
     const name8 = document.getElementById("name-8");
     const score8 = document.getElementById("score-8");
