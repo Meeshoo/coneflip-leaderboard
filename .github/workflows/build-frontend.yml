@@ -25,6 +25,9 @@ jobs:
         run: sudo apt-get update && sudo apt-get install packer
 
       - uses: actions/checkout@v1
+
+      - name: Bodge in API URL
+        run: sed -i 'Ns/http\:\/\/localhost\:3000/${{ secrets.API_URL }}/' coneflip-frontend/js/main.js
       
       - name: Packer build
         run: cd .build && packer build coneflip-frontend.pkr.hcl
@@ -32,3 +35,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: eu-west-1
+          
