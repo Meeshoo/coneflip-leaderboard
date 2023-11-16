@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Bodge in API URL
-        run: sed -i 'Ns/http\:\/\/localhost\:3000/${{ secrets.API_URL }}/' coneflip-frontend/js/main.js
+        run: sed -i '1s/http\:\/\/localhost\:3000/${{ secrets.API_URL }}/' coneflip-frontend/js/main.js
       
       - name: Packer build
         run: cd .build && packer build coneflip-frontend.pkr.hcl
