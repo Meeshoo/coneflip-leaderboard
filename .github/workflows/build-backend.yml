@@ -1,9 +1,12 @@
-name: Build Container
+name: Build Backend Container
 
 on:
   push:
     branches:
       - main
+    paths:
+      - 'coneflip-backend/**'
+
 
   workflow_dispatch:
   
@@ -21,11 +24,13 @@ jobs:
       - name: Install Packer
         run: sudo apt-get update && sudo apt-get install packer
 
-      # Pull repo contents
       - uses: actions/checkout@v1
+
+      - name: Build DotNet app
+        run: mkdir -p output  && dotnet build coneflip-backend/coneflip-backend.csproj -o output/
       
       - name: Packer build
-        run: cd .build && packer build coneflip-leaderboard.pkr.hcl
+        run: cd .build && packer build coneflip-backend.pkr.hcl
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
