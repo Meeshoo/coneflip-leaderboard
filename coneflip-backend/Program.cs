@@ -20,12 +20,6 @@ var app = builder.Build();
 //     .WithOrigins(app.Configuration.GetSection("AllowedHosts").Get<string[]>()!)
 //     .AllowCredentials());
 
-app.UseCors(x => x
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .WithOrigins("http://127.0.0.1:5500")
-    .AllowCredentials());
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
