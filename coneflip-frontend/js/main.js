@@ -1,3 +1,6 @@
+const api_url = "http://localhost:3000"
+let api_endpoint = api_url.concat("/gettopthree")
+
 const request = new XMLHttpRequest();
 
 function toggleVisibility() {
@@ -52,7 +55,7 @@ window.onload = function() {
     const score10 = document.getElementById("score-10");
     const videolink10 = document.getElementById("videolink-10");
 
-    request.open("GET", "http://localhost:3000/gettopthree", false);
+    request.open("GET", api_endpoint, false);
     request.send(null);
 
     if (request.status === 200) {
