@@ -3,8 +3,8 @@ let api_endpoint = api_url.concat("/gettopthree")
 
 const request = new XMLHttpRequest();
 
-function toggleVisibility() {
-    var answer = document.getElementById("answer");
+function toggleVisibility(element) {
+    var answer = document.getElementById(element.id);
     if (answer.style.display == "block"){
       answer.style.display = "none";
     }

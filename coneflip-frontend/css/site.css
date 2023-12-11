@@ -23,6 +23,10 @@ body {
   color: white;
 }
 
+.yt-img {
+  width: 40px;
+  vertical-align: middle;
+}
 
 .leaderboard .row {
   display: flex;
@@ -63,26 +67,53 @@ a:link, a:visited {
   src: url('HighSpeed.woff2') format('woff2');
 }
 
-#question {
+.question {
   text-align: center;
   font-size: 22px;
 }
 
-#question:hover {
-  transition: 0.2s;
-  cursor: pointer;
-  background-color: orange;
-}
-
-#answer {
+.answer {
     display: none;
     overflow: hidden;
 }
 
-.block {
-  width: 600px;
+#bottom-container {
+  flex: 1;
+  padding: .5em 12em;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-block-centre {
+  width: 500px;
   border-radius: 5px;
   margin-top: 80px;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 113, 62);
+}
+
+.bottom-block-centre:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: rgb(231, 231, 231);
+}
+
+.bottom-block-side {
+  width: 300px;
+  border-radius: 5px;
+  margin-top: 80px;
+  margin-right: 5px;
+  margin-left: 5px;
   padding: 10px;
   background-color: rgb(255, 113, 62);
+}
+
+.bottom-block-side:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: orange;
 }
