@@ -14,11 +14,11 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// app.UseCors(x => x
-//     .AllowAnyMethod()
-//     .AllowAnyHeader()
-//     .WithOrigins(app.Configuration.GetSection("AllowedHosts").Get<string[]>()!)
-//     .AllowCredentials());
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .WithOrigins(app.Configuration.GetSection("AllowedHosts").Get<string[]>()!)
+    .AllowCredentials());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
