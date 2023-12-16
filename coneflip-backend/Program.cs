@@ -17,7 +17,7 @@ var app = builder.Build();
 app.UseCors(x => x
     .AllowAnyMethod()
     .AllowAnyHeader()
-    .WithOrigins(app.Configuration.GetSection("AllowedHosts").Get<string[]>()!)
+    .WithOrigins("https://cfl.etrash.pro")
     .AllowCredentials());
 
 // Configure the HTTP request pipeline.
